@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+	<style type="text/css">
+		html, body {
+			margin: 0;
+			background-color: rgb(30, 30, 30);
+			height: 100%;
+		}
+
+		.thumb {
+			margin: 5px;
+			display: inline-block;
+		}
+
+		.larger {
+			display:none;
+		}
+
+		.download {
+			text-align: center;
+			display: block;
+			font-size: 18px;
+			color: rgb(119, 119, 255);
+		}
+
+		.image-list {
+			margin-bottom: 40px;
+		}
+
+		footer {
+			position: fixed;
+			bottom: 0px;
+			padding: 10px 0 5px 0;
+			text-align: center;
+			background-color: #ccc;
+			border-top: 1px solid #ddd;
+			color: #666;
+			width: 100%;
+
+			-webkit-box-shadow: 0px -3px 10px rgba(50, 50, 50, 0.75);
+			-moz-box-shadow:    0px -3px 10px rgba(50, 50, 50, 0.75);
+			box-shadow:         0px -3px 10px rgba(50, 50, 50, 0.75);
+		}
+
+		footer p {
+			margin: 0;
+			padding: 0;
+		}
+
+		footer a, footer a:hover, footer a:visited, footer a:active {
+			color: #39393dd;
+			text-decoration: none;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div class="image-list">
+		{% for image in image_data %}
+			<a class="fancybox" rel="t" href="#img_{{ image.original | replace('/', '_') | replace('.', '_') }}">
+				<img class="thumb" src="{{ image.thumbnails.small }}" />
+			</a>
+
+			<div id="img_{{ image.original | replace('/', '_') | replace('.', '_') }}" class="larger">
+				<img src="{{ image.thumbnails.large }}" /><br />
+				<a class="download" href="{{ image.original }}">Download original (right-click -&gt; save as)</a>
+			</div>
+		{% endfor %}
+	</div>
+
+	<footer>
+		<p>Created with <a href="https://github.com/lietu/pyigal" title="Pythonized Image Gallery">Pyigal<a> by <a href="http://lietu.net/">Janne Enberg aka. Lietu</a>.
+	</footer>
+
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<!-- Add mousewheel plugin (this is optional) -->
+	<script type="text/javascript" src="fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+	<!-- Add fancyBox -->
+	<link rel="stylesheet" href="fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js"></script>
+
+	<script type="text/javascript">
+	jQuery(document).ready(function($){
+		$(document).ready(function() {
+			var speed = 125;
+			$(".fancybox").fancybox({
+				autoHeight: true,
+				autoWidth: true,
+				minWidth: 640,
+				minHeight: 640,
+				openSpeed: speed,
+				closeSpeed: speed,
+				nextSpeed: speed,
+				prevSpeed: speed
+			});
+		});
+	});
+	</script>
+</body>
+</html>
