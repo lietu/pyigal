@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-import Image
+from PIL import Image
 import sys
 
 
