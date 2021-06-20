@@ -28,3 +28,10 @@ If you add/remove pictures, it is enough to just rerun Pyigal to generate any mi
 ## How about licensing?
 
 Short answer: new BSD, and MIT. Long answer: Read the LICENSE -file
+
+
+# Financial support
+
+This project has been made possible thanks to [Cocreators](https://cocreators.ee) and [Lietu](https://lietu.net). You can help us continue our open source work by supporting us on [Buy me a coffee](https://www.buymeacoffee.com/cocreators).
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/cocreators)
